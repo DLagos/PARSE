@@ -9,6 +9,10 @@ h3 {
   color: white;
 }
 
+li {
+	list-style-type: none;
+}
+
 .about-bar {
   background-color: #26477c;
   margin: 10px;
