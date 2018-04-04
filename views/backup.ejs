@@ -25,18 +25,57 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    <% include templates/dummytext.ejs%>
-    </div>
-  </div>
 
+<header>
+    <!--  BEGIN NAVIGATION BAR -->
+    <% include templates/navigation.ejs %>
+    <!-- END OF NAVIGATION BAR -->
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">CSC 648 - Team 4</h1>
+            <p class="lead text-muted">
+                Environmental Reporting Tool<br>
+                This website is the term project for CSC648/848's Team 04.
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- begin container -->
+
+
+        <!-- End container -->
+    </div>
+    <div>
+
+        <form action="/search_results" method="get" class="text-center">
+            <input id="title" type="text" name="zip_code" placeholder="Enter Zipcode:" class="col-md-8">
+            <select name="issue_category">
+                <% if(category.length){ %>
+                <option value="" selected>Select your category</option>
+                <% for(var i = 0;i < category.length;i++) { %>
+                <option><%= category[i].name %></option>
+                <% }
+
+                }else{ %>
+                <option>
+                    No categories
+                </option>
+                <% } %>
+            </select>
+            <button type="submit">Search</button>
+
+        </form>
+        &nbsp;
+        <div>
+            <% include templates/results.ejs %>
+        </div>
+    </div>
+</main>
 
 <footer class="text-muted">
     <div class="container">
