@@ -89,3 +89,25 @@ footer p {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+/*Search Bar*/
+
+   .search{
+    margin-top: 20px;
+    margin-bottom: 40px;
+   }
+   .glyphicon-search{
+    font-size: 20px;
+   }
+   .btn-default{
+    background: orange;
+    width: 100px;
+    padding-top: 20px;
+   }
+   .form-control{
+    padding: 25px;
+    font-size: 20px;
+   }
+   .input{
+    width: 50%;
+   }
+
