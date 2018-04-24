@@ -9,15 +9,17 @@
 
     <title><%= title %></title>
 
+    <!-- Custom styles for this template -->
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 
     <!-- Stylesheets -->
+    <!-- Include any stylesheet references in this stylesheet-->
     <% include templates/stylesheet-refs.ejs %>
 
     <!-- Google Analytics snippet -->
     <% include templates/google-analytics.ejs %>
 </head>
-
-<body>
+<body class="bg">
 
 <header>
     <!--  BEGIN NAVIGATION BAR -->
@@ -31,7 +33,7 @@
         <div class="container">
             <h1>Welcome, </h1>
             <h1 class="jumbotron-heading">CSC 648 - Team 4</h1>
-            <p class="lead text-muted">
+            <p>
                 Environmental Reporting Tool<br>
                 This website is the term project for CSC648/848's Team 04.
             </p>
@@ -43,7 +45,7 @@
     <div class="container">
         <!-- begin container -->
 
-
+<body class="bg">
         <% include templates/results.ejs %>
 
             <!-- End container -->
