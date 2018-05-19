@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title><%=page_title%></title>
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <!--  BEGIN NAVIGATION BAR -->
+        <% include templates/navigation.ejs %>
+        <!-- END OF NAVIGATION BAR -->
+    </header>
+
+    <div class="container">
+        <a href="/" class="btn btn-info">Back to search results</a>
+        <!-- Image pane -->
+        <div class="row">
+            <div class="col-md-6 pane">
+                <h1><%=data[0].title%></h1>
+                <img class="issue-image" src=<%=data[0].image%> />
+                <div class="fields">
+                    <h2 class="field-title">Zip-code: </h2>
+                    <p><%=data[0].zipcode%></p>
+                    <h2 class="field-title">Description:</h2>
+                    <p><%=data[0].description%></p>
+                    <h2 class="field-title">Issue status: </h2>
+
+                </div>
+            </div>
+            <!-- google maps pane -->
+            <div class="col-md-6 pane">
+                <%include templates/google-maps.ejs%>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div><img src=<%=data[0].image%> alt="placeholder" class="issue-pic" width="50%" height="400" /></div>
+    &nbsp;
+    <% include templates/google-maps.ejs %>
+    <div> ID: <%=data[0].id%></div>
+    <div> Title: <%=data[0].title%></div>
+    <div> Category ID: <%=data[0].category%></div>
+    <div> Description: <%=data[0].description%></div>
+    <div> Zip Code: <%=data[0].zipcode%></div> -->
+
+<footer class="text-muted">
+    <div class="container">
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Script references -->
+<% include templates/javascript-refs.ejs %>
+</body>
+
+</html>

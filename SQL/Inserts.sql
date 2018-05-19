@@ -1,0 +1,6 @@
+INSERT INTO heroku_d6fcf8fd2312a32.issue (`id`, `title`, `category`, `zipcode`, `user_id`) VALUES
+(1, 'Trash in Park', (SELECT id FROM heroku_d6fcf8fd2312a32.category WHERE name = 'Pollution'), '94112', (SELECT user_id FROM heroku_d6fcf8fd2312a32.user WHERE user_id = '101')),
+(2, 'Factory Oil Pipeline Leak', (SELECT id FROM heroku_d6fcf8fd2312a32.category WHERE name = 'Accident'), '94105',(SELECT user_id FROM heroku_d6fcf8fd2312a32.user WHERE user_id = '201')),
+(3, 'Car In River ', (SELECT id FROM heroku_d6fcf8fd2312a32.category WHERE name =  'Accident'), '94113',(SELECT user_id FROM heroku_d6fcf8fd2312a32.user WHERE user_id = '101')),
+(4, 'Moldy Couch On Forest Reservation', (SELECT id FROM heroku_d6fcf8fd2312a32.category WHERE name =  'Pollution'), '94127',(SELECT user_id FROM heroku_d6fcf8fd2312a32.user WHERE user_id = '301')),
+(5, 'Radioactive Waste on Childrens Playground', (SELECT id FROM heroku_d6fcf8fd2312a32.category WHERE name =  'Other'), '94137',(SELECT user_id FROM heroku_d6fcf8fd2312a32.user WHERE user_id = '301'));

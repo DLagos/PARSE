@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Submit</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+<header>
+    <!--  BEGIN NAVIGATION BAR -->
+    <% include templates/navigation.ejs %>
+    <!-- END OF NAVIGATION BAR -->
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">CSC 648 - Team 4</h1>
+            <p class="lead text-muted">
+                Environmental Reporting Tool<br>
+                This website is the term project for CSC648/848's Team 04.
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- begin container -->
+
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+            <% if(locals.errors){
+
+            for(var i = 0;i < errors.length;i++) { %>
+
+            <div class="alert alert-danger"><%=errors[i].msg%> </div>
+
+            <%}}%>
+            <form method="post" enctype="multipart/form-data" action="/post_issue">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" placeholder="Title" name="title">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="submit-issue-desc-field" type="textarea" class="form-control" placeholder="Description" name="description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" placeholder="Enter Address" name="address" id="search_term">
+                    <input type="hidden" id="Latitude" name="Lat" />
+                    <input type="hidden" id="Longitude" name="Lng" />
+                </div>
+
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    <input type="text" class="form-control" placeholder="Zip Code" name="zipcode" id="zip_code">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="issue_category" class="form-control">
+                        <% if(category.length){ %>
+                        <% for(var i = 0;i < category.length;i++) { %>
+                        <option><%= category[i].name %></option>
+                        <% }
+
+                        }else{ %>
+                        <option>
+                            No categories
+                        </option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload image below</label>
+                    <input type="file" class="form-control" name="issue_image">
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+        </div>
+
+        <!-- End container -->
+    </div>
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <!-- Default Bootstrap Footer
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+      <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+  -->
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Script references -->
+<% include templates/javascript-refs.ejs %>
+
+<!-- get latitude and longitude from google places api -->
+<script>
+    function activatePlacesSearch() {
+        var input = document.getElementById('search_term');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('Latitude').value = place.geometry.location.lat();
+            document.getElementById('Longitude').value = place.geometry.location.lng();
+            for(var i = 0; i < place.address_components.length; i++) {
+                for(var j = 0; j < place.address_components[i].types.length; j++) {
+                    if(place.address_components[i].types[j] == "postal_code") {
+                        document.getElementById('zip_code').value = place.address_components[i].long_name;
+                    }
+                }
+            }
+        });
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABYQ3l89zm1uFz95T1gJQFEbwKAkzMV3Q&libraries=places&callback=activatePlacesSearch"></script>
+
+</body>
+</html>

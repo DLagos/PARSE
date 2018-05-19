@@ -9,10 +9,9 @@
 
     <title><%= title %></title>
 
-
     <!-- Stylesheets -->
     <% include templates/stylesheet-refs.ejs %>
-
+    
     <!-- Google Analytics snippet -->
     <% include templates/google-analytics.ejs %>
 </head>
@@ -21,15 +20,15 @@
 
 <header>
     <!--  BEGIN NAVIGATION BAR -->
-  <% include templates/navigation.ejs %>
+    <% include templates/navigation.ejs %>
     <!-- END OF NAVIGATION BAR -->
 </header>
+
 
 <main role="main">
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1>Welcome, </h1>
             <h1 class="jumbotron-heading">CSC 648 - Team 4</h1>
             <p class="lead text-muted">
                 Environmental Reporting Tool<br>
@@ -46,9 +45,9 @@
 
         <% include templates/results.ejs %>
 
-            <!-- End container -->
-    </div>
 
+        <!-- End container -->
+    </div>
 </main>
 
 <footer class="text-muted">

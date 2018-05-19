@@ -1,5 +1,4 @@
 /* The following is added manually */
-/* More Comments */
 
 h2 {
   color: white;
@@ -11,6 +10,10 @@ h3 {
 
 li {
 	list-style-type: none;
+.issue-image {
+  width: 75%;
+  height: 75%;
+  border-radius: 25px;
 }
 
 .about-bar {
@@ -33,14 +36,71 @@ li {
   border-radius: 50%;
 }
 
-/* Navbar code */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.field-title {
+  color: black;
+  font-family: sans-serif;
 }
 
-.navbar {
-  margin-bottom: 20px;
+/* Navbar code */
+body {
+  background-image: url(images/design_images/sanfranfrontpage.jpg) no-repeat;
+}
+
+/* Results display code */
+.thumbnail-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+}
+
+/*listing title*/
+h1{
+  font-family: sans-serif;
+}
+
+/*details pane*/
+.pane {
+  /*border-style: solid;*/
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+/* Search Result CSS */
+
+.home-search-result {
+  background-color: #b9d1f7;
+  box-shadow: 1px 1px 1px #484f5b;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  min-height: 220px;
+}
+
+.home-search-result > a > img {
+  display: block;
+  margin: auto;
+}
+
+.home-search-result > h5 {
+  text-align: center;
+}
+
+.home-search-result > p {
+  text-align: center;
+}
+
+#search-result-name {
+  text-align: center;
+}
+
+#search-result-zipcode {
+
+}
+
+
+/* SUBMIT AN ISSUE PAGE css */
+#submit-issue-desc-field {
+  min-height: 200px;
+  text-align:
 }
 
 
@@ -85,4 +145,3 @@ footer p {
 }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
-

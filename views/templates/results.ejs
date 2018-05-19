@@ -1,0 +1,22 @@
+<div class="row">
+  <!-- Begin search results -->
+
+  <% if(data.length){
+
+  for(var i = 0;i < data.length;i++) { %>
+
+  <% include single_search_result.ejs %>
+
+  <% }
+
+  }else{ %>
+  
+
+  No issues
+
+
+  <% } %>
+
+
+  <!-- End Search results -->
+</div>
